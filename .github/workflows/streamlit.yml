@@ -29,7 +29,7 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@4.1.0
         with:
           branch: gh-pages
-          folder: ./recsys_app
+          folder: /
 
       - name: Run Streamlit app
         run: streamlit run recsys_app.py
