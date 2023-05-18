@@ -26,10 +26,10 @@ jobs:
         run: pip install streamlit
 
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+        uses: JamesIves/github-pages-deploy-action@4.1.0
         with:
-          github_token: ${{ secrets.test_karta }}
-          publish_dir: ./dist
+          branch: gh-pages
+          folder: ./recsys_app
 
       - name: Run Streamlit app
         run: streamlit run recsys_app.py
