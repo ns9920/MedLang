@@ -1,10 +1,13 @@
-# Simple workflow for deploying Streamlit app to GitHub Pages
-name: Deploy Streamlit app to Pages
+# Simple workflow for deploying static content to GitHub Pages
+name: Deploy static content to Pages
 
 on:
   # Runs on pushes targeting the default branch
   push:
     branches: ["main", "recsys_app"]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
@@ -18,8 +21,8 @@ concurrency:
   group: "pages"
   cancel-in-progress: false
 
-
 jobs:
+  # Single deploy job since we're just deploying
   deploy:
     environment:
       name: github-pages
@@ -38,7 +41,8 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
-        
+
+  # Deploy Streamlit app
   deploy-streamlit:
     name: Deploy Streamlit app
     runs-on: ubuntu-latest
@@ -49,8 +53,6 @@ jobs:
         run: pip install streamlit
       - name: Setup Pages
         uses: actions/configure-pages@v3
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
         with:
           branch: gh-pages
           publish_dir: ./recsys_app
