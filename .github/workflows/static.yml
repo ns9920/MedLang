@@ -7,16 +7,23 @@ on:
       - main
 
 jobs:
-  deploy:
+  deploy-streamlit:
+    name: Deploy Streamlit app
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Install Streamlit
         run: pip install streamlit
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
         with:
-          token: ${{ secrets.PAT }}
-          publish_dir: ./
-          publish_branch: gh-pages
+          branch: gh-pages
+          publish_dir: ./recsys_app
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
+      # Output the URL of the deployed GitHub Pages site
+      - name: Output Deployed URL
+        run: |
+          echo "Deployed URL: ${{ steps.deployment.outputs.page_url }}"
