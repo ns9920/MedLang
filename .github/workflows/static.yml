@@ -44,6 +44,7 @@ jobs:
 
   # Deploy Streamlit app
   deploy-streamlit:
+    name: Deploy Streamlit app
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -58,6 +59,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
-        with:
-          environment:
-            STREAMLIT_APP: "./recsys_app.py"
