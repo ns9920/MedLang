@@ -16,6 +16,8 @@ def main():
 
     if ehr_file is not None:
         ehr_text = read_file(ehr_file.name)
+        st.write(ehr_text)
+        
         tagged_html = ehr_text['tagged_text']
         reTable = ehr_text['re_table']
 
