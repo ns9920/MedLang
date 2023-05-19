@@ -13,7 +13,7 @@ def main():
 
     # Upload EHR file
     ehr_file = st.file_uploader("Upload your EHR file", type=["txt", "json"])
-
+    print(ehr_file)
     if ehr_file is not None:
         ehr_text = read_file(ehr_file.name)
         st.write(ehr_text)
