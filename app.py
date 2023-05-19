@@ -3,9 +3,10 @@ import json
 
 # Read file contents and set to text area
 def read_file(file_name):
-    with open(file_name, "r") as f:
-        data = json.load(f)
-        return data
+    bytes_data = file_name.read()
+    string_data = bytes_data.decode('utf-8')
+    data = json.loads(string_data)
+    return data
 
 # Main function
 def main():
@@ -13,10 +14,10 @@ def main():
 
     # Upload EHR file
     ehr_file = st.file_uploader("Upload your EHR file", type=["txt", "json"])
-    print(ehr_file)
+
     if ehr_file is not None:
         ehr_text = read_file(ehr_file.name)
-        st.write(ehr_text)
+#         st.write(ehr_text)
         
         tagged_html = ehr_text['tagged_text']
         reTable = ehr_text['re_table']
@@ -41,4 +42,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-    
