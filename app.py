@@ -2,8 +2,8 @@ import streamlit as st
 import json
 
 # Read file contents and set to text area
-def read_file(file_name):
-    bytes_data = file_name.read()
+def read_file(file):
+    bytes_data = file.read()
     string_data = bytes_data.decode('utf-8')
     data = json.loads(string_data)
     return data
@@ -16,8 +16,7 @@ def main():
     ehr_file = st.file_uploader("Upload your EHR file", type=["txt", "json"])
 
     if ehr_file is not None:
-        ehr_text = read_file(ehr_file.name)
-#         st.write(ehr_text)
+        ehr_text = read_file(ehr_file)
         
         tagged_html = ehr_text['tagged_text']
         reTable = ehr_text['re_table']
