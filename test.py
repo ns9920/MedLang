@@ -14,7 +14,12 @@ def do(item):
 # Main function
 def main():
     st.title("NLP for Medical Data")
-    client = boto3.client(service_name='comprehendmedical', region_name='ap-southeast-2')
+    session = boto3.Session(aws_access_key_id=st.secrets["AWS_ACCESS_KEY_ID"],
+                            aws_secret_access_key=st.secrets["AWS_SECRET_ACCESS_KEY"],
+                            region_name='ap-southeast-2')
+    
+    client = session.client('comprehendmedical')
+    #client = boto3.client(service_name='comprehendmedical', region_name='ap-southeast-2')
 
     ehr_text = "A recent study published in The New England Journal of Medicine reported promising results in cancer treatment."
 
