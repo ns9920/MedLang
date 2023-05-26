@@ -21,11 +21,7 @@ TPL_HTML = """<span style = "background-color: {color}; border-radius: 5px;">&nb
 
 TPL_HTML_HOVER = """<span style = "background-color: {color}; border-radius: 5px;" class="{grp}">&nbsp;{content}&nbsp;<span style = "background: {color}">{ent_type}</span></span>"""
 
-#COLORS = {"Drug": "#aa9cfc", "Strength": "#ff9561",
-#          "Form": "#7aecec", "Frequency": "#9cc9cc",
-#          "Route": "#ffeb80", "Dosage": "#bfe1d9",
-#          "Reason": "#e4e7d2", "ADE": "#ff8197",
-#          "Duration": "#97c4f5"}
+
 COLORS = {
   "Drug": "#c112ed",
   "Strength": "#ff4d4d",
