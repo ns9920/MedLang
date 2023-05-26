@@ -1,11 +1,51 @@
-# NLP_EHR
-
-Create a Virtual Enviornment \n
-python3.9 -m venv venv
-
-Activate it 
-source venv/bin/activate
-
-Clone the directory 
-git clone https://github.com/ns9920/NLP_EHR.git
-
+<head>
+  <title>NLP_EHR</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      font-size: 16px;
+    }
+    
+    h1 {
+      font-size: 24px;
+      font-weight: bold;
+      margin-top: 0;
+    }
+    
+    h2 {
+      font-size: 20px;
+      font-weight: bold;
+      margin-top: 16px;
+    }
+    
+    p {
+      margin-bottom: 16px;
+    }
+    
+    code {
+      font-family: monospace;
+      font-size: 14px;
+      background-color: #f0f0f0;
+      padding: 4px;
+    }
+  </style>
+</head>
+<body>
+  <h1>NLP_EHR</h1>
+  <h2>Setup</h2>
+  <p>To set up the project, follow these steps:</p>
+  <ol>
+    <li>Create a virtual environment using Python 3.8:</li>
+    <pre><code>python3.8 -m venv venv</code></pre>
+    <li>Activate the virtual environment:</li>
+    <pre><code>source venv/bin/activate</code></pre>
+    <li>Clone the repository:</li>
+    <pre><code>git clone https://github.com/ns9920/NLP_EHR.git</code></pre>
+    <li>Install the requirements:</li>
+    <pre><code>pip install -r requirements.txt</code></pre>
+    <li>Run the Streamlit app:</li>
+    <pre><code>streamlit run app.py</code></pre>
+  </ol>
+  <h2>Contributions</h2>
+  <p>Contributions are welcome! If you find any issues or have suggestions for improvements, feel free to open an issue or submit a pull request.</p>
+</body>
