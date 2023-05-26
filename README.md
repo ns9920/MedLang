@@ -1,6 +1,6 @@
 # NLP_EHR
 
-Create a Virtual Enviornment 
+Create a Virtual Enviornment \n
 python3.9 -m venv venv
 
 Activate it 
