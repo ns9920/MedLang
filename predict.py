@@ -29,30 +29,23 @@ BILSTM_NER_SEQ_LEN = 512
 BIOBERT_RE_SEQ_LEN = 128
 logging.getLogger('matplotlib.font_manager').disabled = True
 
-# BIOBERT_NER_MODEL_DIR = "final_model/ner"
-# BIOBERT_RE_MODEL_DIR = "final_model/re"
-
 # =====BioBERT Model for NER======
 biobert_ner_labels = get_labels('dataset/labels.txt')
 biobert_ner_label_map = {i: label for i, label in enumerate(biobert_ner_labels)}
 num_labels_ner = len(biobert_ner_labels)
 
-# biobert_ner_config = AutoConfig.from_pretrained(
-#     os.path.join(BIOBERT_NER_MODEL_DIR, "config.json"),
-#     num_labels=num_labels_ner,
-#     id2label=biobert_ner_label_map,
-#     label2id={label: i for i, label in enumerate(biobert_ner_labels)})
-with open('model/NER_config.pkl', 'rb') as f:
-    biobert_ner_config = pickle.load(f)
+biobert_ner_config = AutoConfig.from_pretrained(
+    "nishantsingh/BioBert_NER",
+    num_labels=num_labels_ner,
+    id2label=biobert_ner_label_map,
+    label2id={label: i for i, label in enumerate(biobert_ner_labels)})
 
 biobert_ner_tokenizer = AutoTokenizer.from_pretrained(
-    "dmis-lab/biobert-base-cased-v1.1")
+    "nishantsingh/BioBert_NER")
 
-with open('model/NER_pytorch_model.pkl', 'rb') as f:
-    biobert_ner_model = pickle.load(f)
-# biobert_ner_model = AutoModelForTokenClassification.from_pretrained(
-#     os.path.join(BIOBERT_NER_MODEL_DIR, "pytorch_model.bin"),
-#     config=biobert_ner_config)
+biobert_ner_model = AutoModelForTokenClassification.from_pretrained(
+    "nishantsingh/BioBert_NER",
+    config=biobert_ner_config)
 
 biobert_ner_training_args = TrainingArguments(output_dir="/tmp", do_predict=True)
 
@@ -69,22 +62,15 @@ label_ent_map = {'DRUG': 'Drug', 'STR': 'Strength',
 re_label_list = ["0", "1"]
 re_task_name = "ehr-re"
 
-# biobert_re_config = AutoConfig.from_pretrained(
-#     os.path.join(BIOBERT_RE_MODEL_DIR, "config.json"),
-#     num_labels=len(re_label_list),
-#     finetuning_task=re_task_name)
+biobert_re_config = AutoConfig.from_pretrained(
+    "nishantsingh/BioBertRE",
+    num_labels=len(re_label_list),
+    finetuning_task=re_task_name)
 
-# biobert_re_model = AutoModelForSequenceClassification.from_pretrained(
-#     os.path.join(BIOBERT_RE_MODEL_DIR, "pytorch_model.bin"),
-#     config=biobert_re_config,)
+biobert_re_model = AutoModelForSequenceClassification.from_pretrained(
+    "nishantsingh/BioBertRE"),
+    config=biobert_re_config,)
 
-# Load config.pkl
-with open('model/RE_config.pkl', 'rb') as f:
-    biobert_re_config = pickle.load(f)
-
-# Load pytorch_model.pkl
-with open('model/RE_pytorch_model.pkl', 'rb') as f:
-    biobert_re_model = pickle.load(f)
 
 biobert_re_training_args = TrainingArguments(output_dir="/tmp", do_predict=True)
 
