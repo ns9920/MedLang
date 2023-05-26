@@ -68,7 +68,7 @@ biobert_re_config = AutoConfig.from_pretrained(
     finetuning_task=re_task_name)
 
 biobert_re_model = AutoModelForSequenceClassification.from_pretrained(
-    "nishantsingh/BioBertRE"),
+    "nishantsingh/BioBertRE",
     config=biobert_re_config,)
 
 
