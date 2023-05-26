@@ -11,7 +11,7 @@ seqeval==1.2.2
 fastapi==0.68.1
 uvicorn==0.15.0
 pandas==1.3.2
-ipython==7.27.0
+ipython
 filelock==3.3.1
 pydantic==1.8.2
 allennlp==2.8.0
