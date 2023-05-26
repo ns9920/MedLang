@@ -1,35 +1,3 @@
-<head>
-  <title>NLP_EHR</title>
-  <style>
-    body {
-      font-family: sans-serif;
-      font-size: 16px;
-    }
-    
-    h1 {
-      font-size: 24px;
-      font-weight: bold;
-      margin-top: 0;
-    }
-    
-    h2 {
-      font-size: 20px;
-      font-weight: bold;
-      margin-top: 16px;
-    }
-    
-    p {
-      margin-bottom: 16px;
-    }
-    
-    code {
-      font-family: monospace;
-      font-size: 14px;
-      background-color: #f0f0f0;
-      padding: 4px;
-    }
-  </style>
-</head>
 <body>
   <h1>NLP_EHR</h1>
   <h2>Setup</h2>
@@ -41,7 +9,7 @@
     <pre><code>source venv/bin/activate</code></pre>
     <li>Clone the repository:</li>
     <pre><code>git clone https://github.com/ns9920/NLP_EHR.git</code></pre>
-    <li>Install the requirements:</li>
+    <li>Install the Packages:</li>
     <pre><code>pip install -r requirements.txt</code></pre>
     <li>Run the Streamlit app:</li>
     <pre><code>streamlit run app.py</code></pre>
