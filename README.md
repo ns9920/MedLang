@@ -1,5 +1,5 @@
 <body>
-  <h1>NLP_EHR</h1>
+  <h1>MedLang</h1>
   <h2>Setup</h2>
   <p>To set up the project, follow these steps:</p>
   <ol>
